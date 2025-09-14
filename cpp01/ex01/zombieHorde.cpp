@@ -6,7 +6,7 @@
 /*   By: omaezzem <omaezzem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:46:46 by omaezzem          #+#    #+#             */
-/*   Updated: 2025/08/27 17:16:07 by omaezzem         ###   ########.fr       */
+/*   Updated: 2025/09/08 14:23:56 by omaezzem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Zombie* zombieHorde(int N, std::string name)
     while (N > i)
     {
         hordZombie[i].reset_name(name);
-        msg();
+        hordZombie[i].msg();
         i++;
     }
     return hordZombie;

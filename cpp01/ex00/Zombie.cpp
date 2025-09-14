@@ -6,13 +6,15 @@
 /*   By: omaezzem <omaezzem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 15:39:29 by omaezzem          #+#    #+#             */
-/*   Updated: 2025/09/07 17:55:21 by omaezzem         ###   ########.fr       */
+/*   Updated: 2025/09/08 13:39:56 by omaezzem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name) : name(name){
+Zombie::Zombie(std::string n)
+{
+    name = n;
 }
 
 Zombie::~Zombie(){

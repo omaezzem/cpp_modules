@@ -6,7 +6,7 @@
 /*   By: omaezzem <omaezzem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 14:53:34 by omaezzem          #+#    #+#             */
-/*   Updated: 2025/09/07 17:55:46 by omaezzem         ###   ########.fr       */
+/*   Updated: 2025/09/08 13:35:58 by omaezzem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int main()
 
     std::cout << "Creating stack zombie:" << std::endl;
     randomChump("StackZombie");
-    
-    std::cout << "End of program." << std::endl;
+
     delete heapZombie;
     return 0;
 }

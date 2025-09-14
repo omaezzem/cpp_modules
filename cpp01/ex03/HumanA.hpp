@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omaezzem <omaezzem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/27 16:43:58 by omaezzem          #+#    #+#             */
-/*   Updated: 2025/09/08 14:24:07 by omaezzem         ###   ########.fr       */
+/*   Created: 2025/09/08 15:51:27 by omaezzem          #+#    #+#             */
+/*   Updated: 2025/09/08 15:51:47 by omaezzem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-Zombie::Zombie(){   
-}
-
-Zombie::~Zombie(){
-    std::cout << "the Zombie is deleted from heap" << "\n";
-}
-
-void Zombie::brainzz(void)
+class   HumanA
 {
-    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void    Zombie::reset_name(std::string n)
-{
-    name = n;
-}
-
-void    Zombie::msg()
-{
-    std::cout << name <<" new Zombie in heap" << "\n";
-}
+    private:
+        std::string name;
+        std::string weapon;
+    public:
+        void    attack();      
+};
