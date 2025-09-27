@@ -6,20 +6,43 @@
 /*   By: omaezzem <omaezzem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 10:15:27 by omaezzem          #+#    #+#             */
-/*   Updated: 2025/08/27 19:14:15 by omaezzem         ###   ########.fr       */
+/*   Updated: 2025/09/21 16:46:37 by omaezzem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-Contact::Contact()
-{
+Contact::Contact() {}
 
+Contact::~Contact() {}
+
+void    update_flg(Phonebook &pb)
+{
+    pb.flg = 1;
+    std::cout << "❌ must be printables" << "\n";
 }
 
-Contact::~Contact()
+int    ft_isprint(std::string str)
 {
+    int i = -1;
+    while (str[++i])
+    {
+        if (!isprint(str[i]))
+            return 0;
+    }
+    return 1;
+}
 
+int ft_isdigit(std::string pnumber)
+{
+    int  i = 0;
+    while (pnumber[i])
+    {
+        if (!isdigit(pnumber[i]))
+            return 0;
+        i++;
+    }
+    return 1;
 }
 
 void    Phonebook::ft_add(Phonebook &infopb, Contact &p)
@@ -27,23 +50,43 @@ void    Phonebook::ft_add(Phonebook &infopb, Contact &p)
     std::string name, lastname, nickname, phonenumber, darksecret;
 
     std::cout << "Enter your name : ";
-    getline(std::cin, name);
+    if (!getline(std::cin, name) || !ft_isprint(name) || name[0] == '\0')
+    {
+        update_flg(infopb);
+        return ;
+    }
     p.modify_name(name);
 
     std::cout << "Enter your last name : ";
-    getline(std::cin, lastname);
+    if (!getline(std::cin, lastname) || !ft_isprint(lastname) || lastname[0] == '\0')
+    {
+        update_flg(infopb);
+        return ;
+    }
     p.modify_lastname(lastname);
 
     std::cout << "Enter your nick name : ";
-    getline(std::cin, nickname);
+    if (!getline(std::cin, nickname) || !ft_isprint(nickname) || nickname[0] == '\0')
+    {
+        update_flg(infopb);
+        return ;
+    }
     p.modify_nickname(nickname);
 
     std::cout << "Enter your phone number : ";
-    getline(std::cin, phonenumber);
+    if (!getline(std::cin, phonenumber) || !ft_isprint(phonenumber) || phonenumber[0] == '\0' || !ft_isdigit(phonenumber))
+    {
+        update_flg(infopb);
+        return ;
+    }
     p.modify_phonenumber(phonenumber);
 
     std::cout << "Enter your secret darkest : ";
-    getline(std::cin, darksecret);
+    if (!getline(std::cin, darksecret) || !ft_isprint(darksecret) || darksecret[0] == '\0')
+    {
+        update_flg(infopb);
+        return ;
+    }
     p.modify_darksecret(darksecret);
 
     infopb.contacts[p.get_index() % 8] = p;
@@ -58,7 +101,7 @@ static std::string resize_field(std::string str)
     return str;
 }
 
-void Phonebook::ft_search(Contact &c)
+void Phonebook::ft_search(Contact &c, Phonebook &infopb)
 {
     int i;
     if (c.get_index() < 8)
@@ -70,9 +113,8 @@ void Phonebook::ft_search(Contact &c)
     if (i == 0)
     {
         std::cout << "📭 PhoneBook is empty!\n";
-        return;
+        return ;
     }
-
     std::cout << " ___________________________________________ " << std::endl;
     std::cout << "|   Index  |First Name| Last Name| Nickname |" << std::endl;
     std::cout << "|----------|----------|----------|----------|" << std::endl;
@@ -90,18 +132,21 @@ void Phonebook::ft_search(Contact &c)
 
     std::cout << "Enter index to view details: ";
     std::string input;
-    std::getline(std::cin, input);
-
+    if (!getline(std::cin, input))
+    {
+        update_flg(infopb);
+        return ;
+    }
     if (input.length() != 1 || !isdigit(input[0]))
     {
         std::cout << "❌ Invalid input\n";
-        return;
+        return ;
     }
     int idx = input[0] - '0';
     if (idx < 0 || idx > id)
     {
         std::cout << "❌ Index out of range\n";
-        return;
+        return ;
     }
     std::cout << "First name   : " << contacts[idx].get_name() << "\n";
     std::cout << "Last name    : " << contacts[idx].get_lastname() << "\n";
@@ -113,5 +158,5 @@ void Phonebook::ft_search(Contact &c)
 void Phonebook::ft_exit()
 {
     std::cout << "👋 See you soon!\n";
-    exit(0);
+    std::exit(0);
 }

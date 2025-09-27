@@ -6,7 +6,7 @@
 /*   By: omaezzem <omaezzem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 11:40:07 by omaezzem          #+#    #+#             */
-/*   Updated: 2025/08/26 16:23:15 by omaezzem         ###   ########.fr       */
+/*   Updated: 2025/09/16 14:42:37 by omaezzem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,12 @@ class Contact
 		std::string darkest_secret;
 		int			index;
 	public:
-
 		void			modify_name(std::string info);
 		void			modify_lastname(std::string info);
 		void			modify_nickname(std::string info);
 		void			modify_phonenumber(std::string info);
 		void			modify_darksecret(std::string info);
 		void			modify_index(int n);
-
 		std::string		get_name(void);	
 		std::string		get_lastname(void);	
 		std::string		get_nickname(void);	

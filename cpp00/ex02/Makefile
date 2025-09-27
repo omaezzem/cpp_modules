@@ -6,7 +6,7 @@
 #    By: omaezzem <omaezzem@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/09 14:28:49 by omaezzem          #+#    #+#              #
-#    Updated: 2025/09/09 14:29:51 by omaezzem         ###   ########.fr        #
+#    Updated: 2025/09/16 14:30:08 by omaezzem         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp 
+%.o: %.cpp Account.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJ)

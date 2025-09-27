@@ -6,7 +6,7 @@
 /*   By: omaezzem <omaezzem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 16:25:24 by omaezzem          #+#    #+#             */
-/*   Updated: 2025/09/12 16:41:51 by omaezzem         ###   ########.fr       */
+/*   Updated: 2025/09/22 12:05:07 by omaezzem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ Account::Account(int initial_deposit)
     _amount = initial_deposit;
     _nbDeposits = 0;
     _nbWithdrawals = 0;
-
     _nbAccounts++;
     _totalAmount += _amount;
 
